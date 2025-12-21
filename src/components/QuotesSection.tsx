@@ -51,7 +51,7 @@ const curatedQuotes = [
 export function QuotesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState<"personal" | "curated">("personal");
-  
+
   const activeQuotes = activeTab === "personal" ? quotes : curatedQuotes;
   const currentQuote = activeQuotes[currentIndex];
 
@@ -70,15 +70,12 @@ export function QuotesSection() {
 
   return (
     <section id="insights" className="py-16 bg-card/30">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-5">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Perspectives
-          </span>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">Perspectives</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Insights &{' '}
-            <span className="text-gradient-gold">Reflections</span>
+            Insights & <span className="text-gradient-gold">Reflections</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
             Thoughts on leadership, technology, and the art of transformation.
@@ -93,10 +90,7 @@ export function QuotesSection() {
           >
             My Perspectives
           </Button>
-          <Button
-            variant={activeTab === "curated" ? "default" : "outline"}
-            onClick={() => handleTabChange("curated")}
-          >
+          <Button variant={activeTab === "curated" ? "default" : "outline"} onClick={() => handleTabChange("curated")}>
             Curated Wisdom
           </Button>
         </div>
@@ -116,25 +110,16 @@ export function QuotesSection() {
               <blockquote className="font-display text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-relaxed mb-8">
                 "{currentQuote.text}"
               </blockquote>
-              
+
               <div className="flex flex-col items-center">
-                <span className="font-semibold text-foreground text-lg">
-                  {currentQuote.author}
-                </span>
-                <span className="text-muted-foreground">
-                  {currentQuote.role}
-                </span>
+                <span className="font-semibold text-foreground text-lg">{currentQuote.author}</span>
+                <span className="text-muted-foreground">{currentQuote.role}</span>
               </div>
             </div>
 
             {/* Navigation */}
             <div className="flex items-center justify-between mt-12">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={prevQuote}
-                className="rounded-full"
-              >
+              <Button variant="outline" size="icon" onClick={prevQuote} className="rounded-full">
                 <ChevronLeft className="w-5 h-5" />
               </Button>
 
@@ -145,20 +130,13 @@ export function QuotesSection() {
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex
-                        ? "bg-primary w-6"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                      index === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                     }`}
                   />
                 ))}
               </div>
 
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={nextQuote}
-                className="rounded-full"
-              >
+              <Button variant="outline" size="icon" onClick={nextQuote} className="rounded-full">
                 <ChevronRight className="w-5 h-5" />
               </Button>
             </div>
