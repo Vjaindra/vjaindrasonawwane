@@ -1,6 +1,20 @@
 import { Linkedin, Mail, Phone } from "lucide-react";
 
 const certifications = [
+  "Six Sigma Green Belt",
+  "Six Sigma Black Belt",
+  "Six Sigma Master Black Belt",
+  "Agile Scrum Master"
+  "Certified Prince2 Professional (Foundation & Practitioner)",
+  "TOGAF 10",
+  "ITIL V3",
+  "Business Analyst - RPA",
+  "PMP Training Certification, 35 PDU",
+  "Business Process Management Training",
+  "Certified ISO 27001 and ", 
+  
+];
+const Academy Educations = [
   "MBA",
   "PMP PDU",
   "ITILv3",
