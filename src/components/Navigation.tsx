@@ -52,7 +52,8 @@ export function Navigation() {
               <span>Vjaindra Sonawwane</span>
               <br />
               <span className="text-sm text-muted-foreground font-medium">
-              <span>20+ Years of Enterprise Transformation Leadership</span>
+                20+ Years of Enterprise Transformation Leadership
+              </span>
             </span>
           </a>
 
