@@ -15,10 +15,10 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Full Background Image - Natural Coverage */}
       <div
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full bg-no-repeat bg-center"
         style={{
           backgroundImage: `url(${heroBg})`,
-          backgroundSize: "cover",
+          backgroundSize: window.innerWidth < 768 ? "cover" : "contain",",
           backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
         }}
@@ -59,7 +59,7 @@ export function HeroSection() {
             {/* Name beside photo */}
             <div className="text-center sm:text-left">
               <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-1">
-                Vjaindra Sonawane//
+                Vjaindra Sonawane
               </h2>
               <p className="text-primary font-medium text-sm sm:text-base">
                 Strategic IT & Digital Transformation Leader
