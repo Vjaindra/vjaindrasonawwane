@@ -53,17 +53,13 @@ export function PodcastSection() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           {/* Left Content */}
           <div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-              The Podcast
-            </span>
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">The Podcast</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Leadership, Technology &{' '}
-              <span className="text-gradient-gold">Transformation</span>
+              Leadership, Technology & <span className="text-gradient-gold">Transformation</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Conversations about the intersection of technology leadership, digital 
-              transformation, and organizational change. Featuring insights from 20+ 
-              years of enterprise experience.
+              Conversations about the intersection of technology leadership, digital transformation, and organizational
+              change. Featuring insights from 20+ years of enterprise experience.
             </p>
 
             {/* Podcast Info */}
@@ -74,11 +70,11 @@ export function PodcastSection() {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Clock className="w-5 h-5 text-primary" />
-                <span>30-45 Minutes</span>
+                //<span>30-45 Minutes</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Calendar className="w-5 h-5 text-primary" />
-                <span>Launching 2025</span>
+                <span>Launching 2026</span>
               </div>
             </div>
 
@@ -121,25 +117,25 @@ export function PodcastSection() {
               <div
                 key={index}
                 className={`group bg-card border rounded-xl p-6 transition-all duration-300 cursor-pointer ${
-                  activeEpisode === index 
-                    ? 'border-primary shadow-lg shadow-primary/10' 
-                    : 'border-border hover-lift'
+                  activeEpisode === index ? "border-primary shadow-lg shadow-primary/10" : "border-border hover-lift"
                 }`}
                 onClick={() => handlePlayEpisode(index, episode.youtubeId)}
               >
                 <div className="flex items-start gap-4">
                   {/* Play Button */}
-                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
-                    activeEpisode === index 
-                      ? 'bg-primary' 
-                      : 'bg-primary/10 group-hover:bg-primary'
-                  }`}>
+                  <div
+                    className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
+                      activeEpisode === index ? "bg-primary" : "bg-primary/10 group-hover:bg-primary"
+                    }`}
+                  >
                     {episode.youtubeId ? (
-                      <Play className={`w-6 h-6 transition-colors ${
-                        activeEpisode === index 
-                          ? 'text-primary-foreground' 
-                          : 'text-primary group-hover:text-primary-foreground'
-                      }`} />
+                      <Play
+                        className={`w-6 h-6 transition-colors ${
+                          activeEpisode === index
+                            ? "text-primary-foreground"
+                            : "text-primary group-hover:text-primary-foreground"
+                        }`}
+                      />
                     ) : (
                       <Youtube className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                     )}
@@ -157,10 +153,8 @@ export function PodcastSection() {
                     <h4 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                       {episode.title}
                     </h4>
-                    <p className="text-muted-foreground text-sm">
-                      {episode.description}
-                    </p>
-                    
+                    <p className="text-muted-foreground text-sm">{episode.description}</p>
+
                     {episode.youtubeId && (
                       <div className="mt-3 flex items-center gap-2 text-primary text-sm">
                         <ExternalLink className="w-4 h-4" />
