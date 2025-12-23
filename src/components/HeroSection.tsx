@@ -19,7 +19,7 @@ export function HeroSection() {
         style={{
           backgroundImage: `url(${heroBg})`, // same image
           backgroundSize: "contain", // CHANGED (key fix)
-          backgroundPosition: "center 60%", // CHANGED
+          backgroundPosition: "center 50%", // CHANGED
           backgroundRepeat: "no-repeat", // same
           backgroundColor: "#000000", // ADDED (fills empty space)
         }}
