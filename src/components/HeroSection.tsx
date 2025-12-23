@@ -17,10 +17,11 @@ export function HeroSection() {
       <div
         className="absolute inset-0 w-full h-full"
         style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${heroBg})`, // same image
+          backgroundSize: "contain", // CHANGED (key fix)
+          backgroundPosition: "center center", // CHANGED
+          backgroundRepeat: "no-repeat", // same
+          backgroundColor: "#000000", // ADDED (fills empty space)
         }}
       />
       {/* Gradient Overlay for readability */}
