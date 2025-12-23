@@ -36,13 +36,11 @@ export function Footer() {
               <div className="w-10 h-10 rounded-lg bg-gradient-gold flex items-center justify-center">
                 <span className="text-primary-foreground font-display font-bold text-xl">V</span>
               </div>
-              <span className="font-display text-xl font-semibold text-foreground">
-                Vjaindra Sonawane
-              </span>
+              <span className="font-display text-xl font-semibold text-foreground">Vjaindra Sonawane</span>
             </div>
             <p className="text-muted-foreground text-sm mb-6">
-              Strategic IT & Digital Transformation Leader with 20+ years of 
-              international experience driving enterprise innovation and growth.
+              Strategic IT & Digital Transformation Leader with 20+ years of international experience driving enterprise
+              innovation and growth.
             </p>
             <div className="flex gap-3">
               <a
@@ -91,14 +89,13 @@ export function Footer() {
               <BadgeCheck className="w-5 h-5 text-primary" />
               <h4 className="font-semibold text-foreground">Certifications</h4>
             </div>
-            <ul className="space-y-2">
-              {certifications.map((cert, index) => (
-                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+            <div className="flex flex-wrap gap-1.5">
+              {certifications.map((cert) => (
+                <span key={cert} className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground">
                   {cert}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Academic Education */}
@@ -107,10 +104,9 @@ export function Footer() {
               <GraduationCap className="w-5 h-5 text-primary" />
               <h4 className="font-semibold text-foreground">Academic Education</h4>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {academicEducations.map((edu, index) => (
-                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                <li key={index} className="text-muted-foreground text-sm leading-relaxed">
                   {edu}
                 </li>
               ))}
@@ -123,9 +119,7 @@ export function Footer() {
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Vjaindra Sonawane. All rights reserved.
           </p>
-          <p className="text-muted-foreground text-sm">
-            Auckland, New Zealand • Dubai, UAE • Mumbai, India
-          </p>
+          <p className="text-muted-foreground text-sm">Auckland, New Zealand • Dubai, UAE • Mumbai, India</p>
         </div>
       </div>
     </footer>
