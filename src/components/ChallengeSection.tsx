@@ -143,34 +143,15 @@ export function ChallengeSection() {
               <p className="text-muted-foreground text-sm mb-4">
                 Book a 30-minute discovery call to discuss your transformation challenges.
               </p>
-              <Button variant="hero" className="w-full">
-                Book Meeting
-              </Button>
-            </div>
-
-            {/* Common Challenges */}
-            <div className="p-5 bg-card border border-border rounded-xl">
-              <h4 className="font-semibold text-foreground mb-4">Common Challenges I Address:</h4>
-              <div className="grid gap-2">
-                {[
-                  "Legacy system modernization",
-                  "Cloud migration strategy",
-                  "ERP/CRM implementation",
-                  "Data silos & integration",
-                  "Process automation gaps",
-                  "Customer experience gaps",
-                  "IT governance issues",
-                  "Digital transformation roadmap",
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 text-muted-foreground text-sm"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    {item}
-                  </div>
-                ))}
-              </div>
+              <a
+                href="https://calendly.com/vjaindra-sonawwane"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="hero" className="w-full">
+                  Book Meeting
+                </Button>
+              </a>
             </div>
 
             {/* Trust Indicator */}

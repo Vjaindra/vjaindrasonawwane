@@ -91,16 +91,14 @@ export function Footer() {
               <BadgeCheck className="w-5 h-5 text-primary" />
               <h4 className="font-semibold text-foreground">Certifications</h4>
             </div>
-            <div className="flex flex-wrap gap-1.5">
-              {certifications.map((cert) => (
-                <span
-                  key={cert}
-                  className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-                >
+            <ul className="space-y-2">
+              {certifications.map((cert, index) => (
+                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                   {cert}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Academic Education */}
@@ -109,9 +107,10 @@ export function Footer() {
               <GraduationCap className="w-5 h-5 text-primary" />
               <h4 className="font-semibold text-foreground">Academic Education</h4>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {academicEducations.map((edu, index) => (
-                <li key={index} className="text-muted-foreground text-sm leading-relaxed">
+                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm leading-relaxed">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                   {edu}
                 </li>
               ))}
