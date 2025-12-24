@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { Mail, Linkedin, Calendar, MapPin, Phone, Send, MessageSquare } from "lucide-react";
+import { Mail, Linkedin, Calendar, MapPin, Phone, Send, MessageSquare, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_n1s3igu";
+const EMAILJS_TEMPLATE_ID = "template_alsnpb5";
+const EMAILJS_PUBLIC_KEY = "OLEkUD0cAHdwJIaGr";
 
 export function ContactSection() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,13 +20,39 @@ export function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. I'll respond within 24-48 hours.",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: "Vjaindra Sonawwane",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for reaching out. I'll respond within 24-48 hours.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Failed to Send",
+        description: "Something went wrong. Please try again or email directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -177,9 +209,18 @@ export function ContactSection() {
                   />
                 </div>
 
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Send Message
-                  <Send className="w-4 h-4 ml-2" />
+                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="w-4 h-4 ml-2" />
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
