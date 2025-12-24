@@ -31,8 +31,8 @@ export function HeroSection() {
       <div className="container relative z-10 mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-6 animate-fade-up">
-            {/* <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+         {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-6 animate-fade-up">
+             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
              <span className="text-sm text-muted-foreground font-medium"></span>*/}
           </div>
 
