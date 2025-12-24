@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { Send, Building2, Layers, AlertCircle, Mail, Linkedin, Calendar, MapPin, Phone } from "lucide-react";
+import { Send, Building2, Layers, AlertCircle, Mail, Linkedin, Calendar, MapPin, Phone, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_n1s3igu";
+const EMAILJS_TEMPLATE_ID = "template_3q6yu61";
+const EMAILJS_PUBLIC_KEY = "OLEkUD0cAHdwJIaGr";
 
 const functionalAreas = [
   "IT Strategy & Governance",
@@ -29,6 +34,7 @@ const organizationTypes = [
 
 export function ChallengeSection() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,22 +44,49 @@ export function ChallengeSection() {
     challenge: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    toast({
-      title: "Challenge Received",
-      description: "Thank you for sharing your transformation challenge. I will respond with insights shortly.",
-    });
+    setIsSubmitting(true);
 
-    setFormData({
-      name: "",
-      email: "",
-      organization: "",
-      organizationType: "",
-      functionalArea: "",
-      challenge: "",
-    });
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          organization: formData.organization,
+          organization_type: formData.organizationType,
+          functional_area: formData.functionalArea,
+          challenge: formData.challenge,
+          to_name: "Vjaindra Sonawwane",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Challenge Received!",
+        description: "Thank you for sharing your transformation challenge. I will respond with insights shortly.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        organization: "",
+        organizationType: "",
+        functionalArea: "",
+        challenge: "",
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Failed to Send",
+        description: "Something went wrong. Please try again or email directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -268,9 +301,18 @@ export function ChallengeSection() {
                 </div>
 
                 {/* Submit Button */}
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Submit Challenge
-                  <Send className="w-4 h-4 ml-2" />
+                <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      Submit Challenge
+                      <Send className="w-4 h-4 ml-2" />
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
