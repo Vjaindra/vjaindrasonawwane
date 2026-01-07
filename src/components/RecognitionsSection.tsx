@@ -1,5 +1,5 @@
 import { Mic, GraduationCap, Trophy } from "lucide-react";
-
+import { ScrollReveal, StaggerContainer, StaggerItem } from "./ScrollReveal";
 const recognitions = [
   {
     year: "2023",
@@ -42,22 +42,25 @@ export function RecognitionsSection() {
     <section id="recognitions" className="py-10 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Recognition & Leadership
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Recognitions, Speaker &{' '}
-            <span className="text-gradient-gold">Training</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Industry recognition for excellence in digital transformation and thought leadership
-          </p>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="max-w-3xl mx-auto text-center mb-8">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+              Recognition & Leadership
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              Recognitions, Speaker &{' '}
+              <span className="text-gradient-gold">Training</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Industry recognition for excellence in digital transformation and thought leadership
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Recognitions Grid */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <StaggerContainer className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto" staggerDelay={0.1}>
           {recognitions.map((item, index) => (
+            <StaggerItem key={index}>
             <div
               key={index}
               className="group relative bg-card border border-border rounded-2xl p-6 hover-lift"
@@ -87,8 +90,9 @@ export function RecognitionsSection() {
                 </div>
               </div>
             </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         {/* Additional Context */}
         <div className="mt-6 max-w-3xl mx-auto text-center">
