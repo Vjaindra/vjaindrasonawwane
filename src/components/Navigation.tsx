@@ -64,6 +64,19 @@ export function Navigation() {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(item.href);
+                  if (element) {
+                    const offset = 80;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                    });
+                  }
+                }}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
               >
                 {item.label}
@@ -94,7 +107,20 @@ export function Navigation() {
                   key={item.label}
                   href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors duration-300 text-base font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    const element = document.querySelector(item.href);
+                    if (element) {
+                      const offset = 80;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - offset;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                      });
+                    }
+                  }}
                 >
                   {item.label}
                 </a>

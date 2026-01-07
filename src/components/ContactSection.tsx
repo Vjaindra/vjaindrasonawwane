@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { ConsultationScheduler } from "./ConsultationScheduler";
+import { ScrollReveal } from "./ScrollReveal";
 import emailjs from "@emailjs/browser";
 
 const EMAILJS_SERVICE_ID = "service_n1s3igu";
@@ -119,23 +120,26 @@ export function ContactSection() {
     <section id="connect" className="py-10 bg-card/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Get in Touch
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Let's{' '}
-            <span className="text-gradient-gold">Connect</span>
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Whether you're looking for strategic guidance, collaboration opportunities, 
-            or simply want to discuss technology and transformation.
-          </p>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="max-w-3xl mx-auto text-center mb-8">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+              Get in Touch
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Let's{' '}
+              <span className="text-gradient-gold">Connect</span>
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Whether you're looking for strategic guidance, collaboration opportunities, 
+              or simply want to discuss technology and transformation.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-8">
+          <ScrollReveal variant="slideRight" className="lg:col-span-2">
+            <div className="space-y-8">
             {/* Quick Contact Cards */}
             <div className="space-y-4">
               <a
@@ -214,10 +218,11 @@ export function ContactSection() {
               isOpen={isSchedulerOpen} 
               onClose={() => setIsSchedulerOpen(false)} 
             />
-          </div>
+            </div>
+          </ScrollReveal>
 
           {/* Contact Form */}
-          <div className="lg:col-span-3">
+          <ScrollReveal variant="slideLeft" delay={0.2} className="lg:col-span-3">
             <div className="bg-card border border-border rounded-2xl p-8 relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
@@ -374,7 +379,7 @@ export function ContactSection() {
                 )}
               </AnimatePresence>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

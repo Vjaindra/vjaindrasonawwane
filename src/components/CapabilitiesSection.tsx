@@ -10,6 +10,8 @@ import {
   Bot,
   ChevronRight
 } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
+import { motion } from "framer-motion";
 
 const capabilities = [
   {
@@ -142,22 +144,25 @@ export function CapabilitiesSection() {
     <section id="capabilities" className="py-16 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Advisory Services
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            How I Help Organizations{' '}
-            <span className="text-gradient-gold">Transform</span>
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Strategic advisory across the full spectrum of digital transformation, 
-            from vision to execution.
-          </p>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+              Advisory Services
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              How I Help Organizations{' '}
+              <span className="text-gradient-gold">Transform</span>
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Strategic advisory across the full spectrum of digital transformation, 
+              from vision to execution.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Capabilities Layout */}
-        <div className="grid lg:grid-cols-12 gap-8">
+        <ScrollReveal variant="fadeUp" delay={0.2}>
+          <div className="grid lg:grid-cols-12 gap-8">
           {/* Capability List */}
           <div className="lg:col-span-4 space-y-2">
             {capabilities.map((cap, index) => (
@@ -195,7 +200,13 @@ export function CapabilitiesSection() {
 
           {/* Capability Detail */}
           <div className="lg:col-span-8">
-            <div className="bg-card border border-border rounded-2xl p-8 lg:p-10 h-full">
+            <motion.div 
+              key={activeIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4 }}
+              className="bg-card border border-border rounded-2xl p-8 lg:p-10 h-full"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   <activeCapability.icon className="w-7 h-7 text-primary" />
@@ -242,9 +253,10 @@ export function CapabilitiesSection() {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

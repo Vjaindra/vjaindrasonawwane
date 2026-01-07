@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "./ScrollReveal";
+import { motion, AnimatePresence } from "framer-motion";
 
 const quotes = [
   {
@@ -72,18 +74,21 @@ export function QuotesSection() {
     <section id="insights" className="py-10 bg-card/30">
       <div className="container mx-auto px-5">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-6">
-          <span className="text-primary font-semibold text-xs uppercase tracking-wider mb-2 block">Perspectives</span>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold mb-2">
-            Insights & <span className="text-gradient-gold">Reflections</span>
-          </h2>
-          <p className="text-muted-foreground text-sm">
-            Thoughts on leadership, technology, and the art of transformation.
-          </p>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="max-w-3xl mx-auto text-center mb-6">
+            <span className="text-primary font-semibold text-xs uppercase tracking-wider mb-2 block">Perspectives</span>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-2">
+              Insights & <span className="text-gradient-gold">Reflections</span>
+            </h2>
+            <p className="text-muted-foreground text-sm">
+              Thoughts on leadership, technology, and the art of transformation.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Tab Switcher */}
-        <div className="flex justify-center gap-2 mb-6">
+        <ScrollReveal variant="fadeUp" delay={0.1}>
+          <div className="flex justify-center gap-2 mb-6">
           <Button
             variant={activeTab === "personal" ? "default" : "outline"}
             onClick={() => handleTabChange("personal")}
@@ -93,29 +98,46 @@ export function QuotesSection() {
           <Button variant={activeTab === "curated" ? "default" : "outline"} onClick={() => handleTabChange("curated")}>
             Curated Wisdom
           </Button>
-        </div>
+          </div>
+        </ScrollReveal>
 
         {/* Quote Card */}
-        <div className="max-w-3xl mx-auto">
-          <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8">
-            {/* Quote Icon */}
-            <div className="absolute -top-4 left-8">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-gold">
-                <Quote className="w-4 h-4 text-primary-foreground" />
+        <ScrollReveal variant="scale" delay={0.2}>
+          <div className="max-w-3xl mx-auto">
+            <div className="relative bg-card border border-border rounded-2xl p-6 md:p-8">
+              {/* Quote Icon */}
+              <div className="absolute -top-4 left-8">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-gold">
+                  <Quote className="w-4 h-4 text-primary-foreground" />
+                </div>
               </div>
-            </div>
 
-            {/* Quote Content */}
-            <div className="text-center pt-2">
-              <blockquote className="font-display text-lg md:text-xl lg:text-2xl font-medium text-foreground leading-relaxed mb-4">
-                "{currentQuote.text}"
-              </blockquote>
+              {/* Quote Content */}
+              <div className="text-center pt-2">
+                <AnimatePresence mode="wait">
+                  <motion.blockquote 
+                    key={currentIndex}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="font-display text-lg md:text-xl lg:text-2xl font-medium text-foreground leading-relaxed mb-4"
+                  >
+                    "{currentQuote.text}"
+                  </motion.blockquote>
+                </AnimatePresence>
 
-              <div className="flex flex-col items-center">
-                <span className="font-semibold text-foreground text-sm">{currentQuote.author}</span>
-                <span className="text-muted-foreground text-xs">{currentQuote.role}</span>
+                <motion.div 
+                  key={`author-${currentIndex}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="flex flex-col items-center"
+                >
+                  <span className="font-semibold text-foreground text-sm">{currentQuote.author}</span>
+                  <span className="text-muted-foreground text-xs">{currentQuote.role}</span>
+                </motion.div>
               </div>
-            </div>
 
             {/* Navigation */}
             <div className="flex items-center justify-between mt-6">
@@ -142,6 +164,7 @@ export function QuotesSection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

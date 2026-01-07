@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { ConsultationScheduler } from "./ConsultationScheduler";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "./ScrollReveal";
 import emailjs from "@emailjs/browser";
 
 const EMAILJS_SERVICE_ID = "service_n1s3igu";
@@ -159,24 +160,27 @@ export function ChallengeSection() {
     <section id="challenge" className="py-16 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Let's Connect
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Let's Decode Your{' '}
-            <span className="text-gradient-gold">Transformation</span> Problem
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Whether you're facing IT modernization hurdles, struggling with digital 
-            adoption, or need strategic guidance on your transformation journey—share 
-            your challenge and receive expert insights.
-          </p>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+              Let's Connect
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Let's Decode Your{' '}
+              <span className="text-gradient-gold">Transformation</span> Problem
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Whether you're facing IT modernization hurdles, struggling with digital 
+              adoption, or need strategic guidance on your transformation journey—share 
+              your challenge and receive expert insights.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-12">
           {/* Left Content - Contact Info & Challenges */}
-          <div className="lg:col-span-2 space-y-8">
+          <ScrollReveal variant="slideRight" className="lg:col-span-2">
+            <div className="space-y-8">
             {/* Quick Contact Cards */}
             <div className="space-y-3">
               <a
@@ -267,10 +271,11 @@ export function ChallengeSection() {
                 details and challenges are used solely for providing relevant advisory insights.
               </p>
             </div>
-          </div>
+            </div>
+          </ScrollReveal>
 
           {/* Right Form */}
-          <div className="lg:col-span-3">
+          <ScrollReveal variant="slideLeft" delay={0.2} className="lg:col-span-3">
             <div className="bg-card border border-border rounded-2xl p-8 relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
@@ -476,7 +481,7 @@ export function ChallengeSection() {
                 )}
               </AnimatePresence>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
