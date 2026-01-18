@@ -22,7 +22,8 @@ export function HeroSection() {
         rgba(0, 0, 0, 0.55),
         rgba(0, 0, 0, 0.55)
       ),
-    backgroundImage: `url(${heroBg})
+       url(${heroBg})
+    `,
     backgroundSize: "contain",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
