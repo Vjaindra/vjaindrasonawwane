@@ -26,7 +26,7 @@ export function HeroSection() {
     backgroundSize: "contain",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
+      {/*backgroundAttachment: "fixed",*/}
   }}
 />
       {/* Light Gradient Overlay for readability */}
