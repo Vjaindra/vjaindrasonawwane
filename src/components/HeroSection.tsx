@@ -19,8 +19,8 @@ export function HeroSection() {
   style={{
     backgroundImage: `
       linear-gradient(
-        rgba(0, 0, 0, 0.60),
-        rgba(0, 0, 0, 0.60)
+        rgba(0, 0, 0, 0.70),
+        rgba(0, 0, 0, 0.70)
       ),
       url(${heroBg})
     `,
