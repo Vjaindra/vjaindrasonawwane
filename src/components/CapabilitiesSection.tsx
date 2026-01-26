@@ -142,48 +142,53 @@ export function CapabilitiesSection() {
   const activeCapability = capabilities[activeIndex];
 
   return (
-    <section id="capabilities" className="py-16 lg:py-20 bg-background border-y-2 border-primary/20">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="capabilities" className="py-10 lg:py-14 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-12"
+          className="max-w-2xl mb-10"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">
             Advisory Services
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground mb-3">
             Capability <span className="text-gradient-gold">Domains</span>
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             Strategic advisory across the full spectrum of digital transformation, from vision to execution.
           </p>
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-10">
           {/* Left - Capability List */}
           <div className="lg:col-span-2 space-y-1">
             {capabilities.map((cap, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-full text-left py-4 px-4 border-l-2 transition-all duration-300 ${
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ x: 5 }}
+                className={`w-full text-left py-3 px-4 border-l-2 transition-all duration-300 ${
                   activeIndex === index
                     ? "border-foreground bg-background"
                     : "border-transparent hover:border-muted-foreground/30"
                 }`}
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <cap.icon className={`w-5 h-5 ${activeIndex === index ? "text-foreground" : "text-muted-foreground"}`} />
-                  <span className={`font-display text-lg ${activeIndex === index ? "text-foreground" : "text-muted-foreground"}`}>
+                  <span className={`font-display text-base ${activeIndex === index ? "text-foreground" : "text-muted-foreground"}`}>
                     {cap.title}
                   </span>
                 </div>
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -192,55 +197,72 @@ export function CapabilitiesSection() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: 20, scale: 0.98 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -20, scale: 0.98 }}
                 transition={{ duration: 0.4 }}
-                className="bg-background border border-border p-8 lg:p-10"
+                className="bg-background border border-border p-6 lg:p-8"
               >
                 {/* Header */}
-                <div className="flex items-start gap-4 mb-8">
-                  <div className="w-14 h-14 flex items-center justify-center border border-border">
-                    <activeCapability.icon className="w-6 h-6 text-foreground" />
-                  </div>
+                <div className="flex items-start gap-4 mb-6">
+                  <motion.div 
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="w-12 h-12 flex items-center justify-center border border-border"
+                  >
+                    <activeCapability.icon className="w-5 h-5 text-foreground" />
+                  </motion.div>
                   <div>
-                    <h3 className="font-display text-2xl text-foreground mb-2">
+                    <h3 className="font-display text-xl text-foreground mb-2">
                       {activeCapability.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {activeCapability.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Challenges */}
-                <div className="mb-8">
-                  <h4 className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 flex items-center gap-2">
+                <div className="mb-6">
+                  <h4 className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3 flex items-center gap-2">
                     <AlertTriangle className="w-4 h-4" />
                     Common Challenges
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {activeCapability.challenges.map((challenge, i) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
-                        <span className="w-1 h-1 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
+                      <motion.li 
+                        key={i} 
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 + i * 0.1 }}
+                        className="flex items-start gap-3 text-muted-foreground text-sm"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/50 mt-1.5 flex-shrink-0" />
                         {challenge}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Outcomes */}
                 <div>
-                  <h4 className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 flex items-center gap-2">
+                  <h4 className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3 flex items-center gap-2">
                     <CheckCircle className="w-4 h-4" />
                     Expected Outcomes
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {activeCapability.outcomes.map((outcome, i) => (
-                      <li key={i} className="flex items-start gap-3 text-foreground text-sm">
+                      <motion.li 
+                        key={i} 
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 + i * 0.1 }}
+                        className="flex items-start gap-3 text-foreground text-sm"
+                      >
                         <ArrowRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                         {outcome}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>

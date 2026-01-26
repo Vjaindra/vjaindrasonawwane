@@ -24,7 +24,7 @@ html.transitioning *::after {
     --background: 0 0% 100%;
     --foreground: 0 0% 8%;
 
-    --card: 0 0% 100%;
+    --card: 0 0% 98%;
     --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
@@ -45,8 +45,8 @@ html.transitioning *::after {
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 85% 97%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
     --ring: 0 0% 8%;
 
     --radius: 0rem;

@@ -4,8 +4,7 @@ import { ImpactSection } from "@/components/ImpactSection";
 import { CareerTimelineSection } from "@/components/CareerTimelineSection";
 import { CapabilitiesSection } from "@/components/CapabilitiesSection";
 import { SkillsSection } from "@/components/SkillsSection";
-import { RecognitionsSection } from "@/components/RecognitionsSection";
-import { InsightsPublicationsSection } from "@/components/InsightsPublicationsSection";
+import { InsightsRecognitionsSection } from "@/components/InsightsRecognitionsSection";
 import { ChallengeSection } from "@/components/ChallengeSection";
 import { Footer } from "@/components/Footer";
 import { AIChatBot } from "@/components/AIChatBot";
@@ -20,8 +19,7 @@ const Index = () => {
       <CareerTimelineSection />
       <CapabilitiesSection />
       <SkillsSection />
-      <RecognitionsSection />
-      <InsightsPublicationsSection />
+      <InsightsRecognitionsSection />
       <ChallengeSection />
       <Footer />
       <AIChatBot />

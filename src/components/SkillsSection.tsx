@@ -174,23 +174,23 @@ function StatBadge({ stat, index }: { stat: typeof careerStats[0]; index: number
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-16 lg:py-20 bg-card border-y-2 border-primary/20">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="skills" className="py-10 lg:py-14 bg-card">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">
             Technical Expertise
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground mb-3">
             Professional <span className="text-gradient-gold">Competencies</span>
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             Two decades of hands-on experience driving enterprise technologies and strategic leadership across global markets.
           </p>
         </motion.div>

@@ -29,8 +29,8 @@ const exploreLinks = ["Impact", "Capabilities", "Insights", "Publications", "Con
 
 export function Footer() {
   return (
-    <footer id="connect" className="bg-card border-t-2 border-primary/30 py-10">
-      <div className="container mx-auto px-6 lg:px-12">
+    <footer id="connect" className="bg-card py-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
@@ -89,8 +89,9 @@ export function Footer() {
             </div>
             <ul className="space-y-1.5 max-h-52 overflow-y-auto pr-2 scrollbar-thin">
               {certifications.map((cert, index) => (
-                <li key={index} className="text-muted-foreground text-xs leading-relaxed hover:text-foreground transition-colors">
-                  • {cert}
+                <li key={index} className="text-muted-foreground text-xs leading-relaxed hover:text-foreground transition-colors flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-1.5 flex-shrink-0" />
+                  {cert}
                 </li>
               ))}
             </ul>
@@ -104,8 +105,9 @@ export function Footer() {
             </div>
             <ul className="space-y-2">
               {academicEducations.map((edu, index) => (
-                <li key={index} className="text-muted-foreground text-xs leading-relaxed hover:text-foreground transition-colors">
-                  • {edu}
+                <li key={index} className="text-muted-foreground text-xs leading-relaxed hover:text-foreground transition-colors flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-1.5 flex-shrink-0" />
+                  {edu}
                 </li>
               ))}
             </ul>
