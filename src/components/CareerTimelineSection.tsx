@@ -117,21 +117,21 @@ export function CareerTimelineSection() {
   };
 
   return (
-    <section id="career" className="py-16 lg:py-20 bg-secondary/50 border-y-2 border-primary/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="career" className="py-10 lg:py-14 bg-secondary/50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex items-end justify-between mb-10"
+          className="flex items-end justify-between mb-8"
         >
           <div className="max-w-xl">
-            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">
               Professional Journey
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl text-foreground">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground">
               Career <span className="text-gradient-gold">Timeline</span>
             </h2>
           </div>
@@ -171,10 +171,11 @@ export function CareerTimelineSection() {
             {careerData.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
+                whileHover={{ y: -3, boxShadow: "0 8px 25px -8px hsl(var(--primary) / 0.15)" }}
                 className="flex-shrink-0 w-72"
               >
                 {/* Timeline Dot */}

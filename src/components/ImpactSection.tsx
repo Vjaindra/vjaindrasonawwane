@@ -40,52 +40,75 @@ const impactCards = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.98 },
+  visible: { 
+    opacity: 1, y: 0, scale: 1,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }
+  },
+};
+
 export function ImpactSection() {
   return (
-    <section id="impact" className="py-16 lg:py-20 bg-card border-y-2 border-primary/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="impact" className="py-10 lg:py-14 bg-card">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-12"
+          className="max-w-2xl mb-10"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">
             Transformation Impact
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground mb-3">
             Driving Measurable <span className="text-gradient-gold">Results</span>
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             A track record of delivering enterprise-wide transformation with quantifiable business outcomes across global markets.
           </p>
         </motion.div>
 
         {/* Impact Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
           {impactCards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-background p-6 lg:p-8 group"
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, y: -5, boxShadow: "0 8px 30px -10px hsl(var(--primary) / 0.15)" }}
+              className="bg-background p-5 lg:p-6 group border border-border hover:border-foreground/20 transition-all duration-300"
             >
               {/* Icon */}
-              <div className="w-12 h-12 flex items-center justify-center border border-border mb-6 group-hover:border-foreground transition-colors">
+              <motion.div 
+                whileHover={{ rotate: 5 }}
+                className="w-10 h-10 flex items-center justify-center border border-border mb-4 group-hover:border-foreground group-hover:bg-foreground/5 transition-all duration-300"
+              >
                 <card.icon className="w-5 h-5 text-foreground" />
-              </div>
+              </motion.div>
 
               {/* Title */}
-              <h3 className="font-display text-xl lg:text-2xl text-foreground mb-4">
+              <h3 className="font-display text-lg lg:text-xl text-foreground mb-3">
                 {card.title}
               </h3>
 
               {/* Description */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {card.description}
               </p>
 
@@ -102,7 +125,7 @@ export function ImpactSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

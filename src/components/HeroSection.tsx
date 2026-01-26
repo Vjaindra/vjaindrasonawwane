@@ -19,15 +19,18 @@ export function HeroSection() {
 
   return (
     <section className="min-h-[90vh] flex items-center justify-center pt-20 relative overflow-hidden">
-      {/* Background Image with Fade */}
+      {/* Background Image - More visible with contain/cover blend */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat lg:bg-cover"
+        style={{ 
+          backgroundImage: `url(${heroBg})`,
+          backgroundPosition: 'center 30%',
+        }}
       />
-      <div className="absolute inset-0 bg-background/85 dark:bg-background/90" />
+      <div className="absolute inset-0 bg-background/75 dark:bg-background/80" />
       
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center py-10">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

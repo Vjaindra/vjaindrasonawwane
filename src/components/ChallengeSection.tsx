@@ -110,23 +110,23 @@ export function ChallengeSection() {
   };
 
   return (
-    <section id="challenge" className="py-16 lg:py-20 bg-card border-y-2 border-primary/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="challenge" className="py-10 lg:py-14 bg-card">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-12"
+          className="max-w-2xl mb-10"
         >
-          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">
             Let's Connect
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl text-foreground mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-foreground mb-3">
             Share Your <span className="text-gradient-gold">Challenge</span>
           </h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             Whether you're facing IT modernization hurdles or need strategic guidance on your transformation journey—share your challenge and receive expert insights.
           </p>
         </motion.div>
