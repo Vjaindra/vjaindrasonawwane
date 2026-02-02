@@ -111,7 +111,7 @@ export function ChallengeSection() {
 
   return (
     <section id="challenge" className="py-10 lg:py-14 bg-card">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -135,28 +135,28 @@ export function ChallengeSection() {
           {/* Left - Contact Info */}
           <div className="lg:col-span-2 space-y-6">
             <div className="space-y-4">
-              <a href="mailto:vjaindra.sonawwane@gmail.com" className="flex items-center gap-4 p-4 border border-border hover:border-foreground transition-colors">
+              <a href="mailto:vjaindra.sonawwane@gmail.com" className="flex items-center gap-4 p-4 border-2 border-foreground/20 hover:border-foreground/40 transition-colors">
                 <Mail className="w-5 h-5 text-foreground" />
                 <div>
                   <p className="text-xs text-muted-foreground">Email</p>
                   <p className="text-sm text-foreground">vjaindra.sonawwane@gmail.com</p>
                 </div>
               </a>
-              <a href="https://linkedin.com/in/vjaindra-sonawwane" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 border border-border hover:border-foreground transition-colors">
+              <a href="https://linkedin.com/in/vjaindra-sonawwane" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 border-2 border-foreground/20 hover:border-foreground/40 transition-colors">
                 <Linkedin className="w-5 h-5 text-foreground" />
                 <div>
                   <p className="text-xs text-muted-foreground">LinkedIn</p>
                   <p className="text-sm text-foreground">linkedin.com/in/vjaindra-sonawwane</p>
                 </div>
               </a>
-              <a href="tel:+971527451378" className="flex items-center gap-4 p-4 border border-border hover:border-foreground transition-colors">
+              <a href="tel:+971527451378" className="flex items-center gap-4 p-4 border-2 border-foreground/20 hover:border-foreground/40 transition-colors">
                 <Phone className="w-5 h-5 text-foreground" />
                 <div>
                   <p className="text-xs text-muted-foreground">Phone</p>
                   <p className="text-sm text-foreground">+971 527451378</p>
                 </div>
               </a>
-              <div className="flex items-center gap-4 p-4 border border-border">
+              <div className="flex items-center gap-4 p-4 border-2 border-foreground/20">
                 <MapPin className="w-5 h-5 text-foreground" />
                 <div>
                   <p className="text-xs text-muted-foreground">Location</p>
@@ -166,7 +166,7 @@ export function ChallengeSection() {
             </div>
 
             {/* Schedule CTA */}
-            <div className="border border-border p-6">
+            <div className="border-2 border-foreground/20 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Calendar className="w-5 h-5 text-foreground" />
                 <h4 className="font-display text-lg text-foreground">Schedule Consultation</h4>
@@ -184,7 +184,7 @@ export function ChallengeSection() {
 
           {/* Right - Form */}
           <div className="lg:col-span-3">
-            <div className="border border-border p-8 lg:p-10">
+            <div className="border-2 border-foreground/20 p-8 lg:p-10">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   <motion.div

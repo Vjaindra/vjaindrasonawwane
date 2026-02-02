@@ -167,9 +167,9 @@ export function InsightsRecognitionsSection() {
 
   return (
     <section id="insights" className="py-12 lg:py-16 bg-secondary/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         {/* Two Column Layout for Both Sections */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           
           {/* Left Column - Insights & Publications */}
           <div>
@@ -222,7 +222,7 @@ export function InsightsRecognitionsSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="border border-border p-6 mb-6"
+                className="border-2 border-foreground/20 p-6 mb-6"
               >
                 <Quote className="w-6 h-6 text-accent mb-4" />
                 <AnimatePresence mode="wait">
@@ -243,10 +243,10 @@ export function InsightsRecognitionsSection() {
                     <p className="text-xs text-muted-foreground">{currentQuote.role}</p>
                   </div>
                   <div className="flex gap-2">
-                    <button onClick={prevQuote} className="w-8 h-8 flex items-center justify-center border border-border hover:border-foreground transition-colors">
+                    <button onClick={prevQuote} className="w-8 h-8 flex items-center justify-center border-2 border-foreground/20 hover:border-foreground/40 transition-colors">
                       <ChevronLeft className="w-4 h-4" />
                     </button>
-                    <button onClick={nextQuote} className="w-8 h-8 flex items-center justify-center border border-border hover:border-foreground transition-colors">
+                    <button onClick={nextQuote} className="w-8 h-8 flex items-center justify-center border-2 border-foreground/20 hover:border-foreground/40 transition-colors">
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -286,10 +286,10 @@ export function InsightsRecognitionsSection() {
                       key={index}
                       variants={itemVariants}
                       whileHover={{ scale: 1.02, x: 5 }}
-                      className="border border-border p-4 group hover:border-foreground/30 transition-all duration-300"
+                      className="border-2 border-foreground/20 p-4 group hover:border-foreground/40 transition-all duration-300"
                     >
                       <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 flex items-center justify-center border border-border flex-shrink-0">
+                        <div className="w-9 h-9 flex items-center justify-center border-2 border-foreground/20 flex-shrink-0">
                           <pub.icon className="w-4 h-4 text-foreground" />
                         </div>
                         <div className="flex-1 min-w-0">
@@ -364,7 +364,7 @@ export function InsightsRecognitionsSection() {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.02, x: 5, boxShadow: "0 4px 20px -5px hsl(var(--primary) / 0.2)" }}
-                  className="bg-background p-5 border border-border group hover:border-foreground/30 transition-all duration-300"
+                  className="bg-background p-5 border-2 border-foreground/20 group hover:border-foreground/40 transition-all duration-300"
                 >
                   {/* Year & Type */}
                   <div className="flex items-center justify-between mb-3">
@@ -377,7 +377,7 @@ export function InsightsRecognitionsSection() {
                   </div>
 
                   {/* Icon */}
-                  <div className="w-9 h-9 flex items-center justify-center border border-border mb-3 group-hover:border-foreground/50 transition-colors">
+                  <div className="w-9 h-9 flex items-center justify-center border-2 border-foreground/20 mb-3 group-hover:border-foreground/40 transition-colors">
                     <item.icon className="w-4 h-4 text-foreground" />
                   </div>
 

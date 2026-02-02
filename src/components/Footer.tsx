@@ -30,8 +30,8 @@ const exploreLinks = ["Impact", "Capabilities", "Insights", "Publications", "Con
 export function Footer() {
   return (
     <footer id="connect" className="bg-card py-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
           {/* Brand */}
           <div>
             <span className="font-display text-xl text-foreground block mb-3">
@@ -40,24 +40,24 @@ export function Footer() {
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
               Strategic IT & Digital Transformation Leader with 20+ years of international experience.
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               <a
                 href="https://linkedin.com/in/vjaindra-sonawwane"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 flex items-center justify-center border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+                className="w-9 h-9 flex items-center justify-center border-2 border-foreground/20 text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="mailto:vjaindra.sonawwane@gmail.com"
-                className="w-8 h-8 flex items-center justify-center border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+                className="w-9 h-9 flex items-center justify-center border-2 border-foreground/20 text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
               >
                 <Mail className="w-4 h-4" />
               </a>
               <a
                 href="tel:+971527451378"
-                className="w-8 h-8 flex items-center justify-center border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+                className="w-9 h-9 flex items-center justify-center border-2 border-foreground/20 text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
               >
                 <Phone className="w-4 h-4" />
               </a>
