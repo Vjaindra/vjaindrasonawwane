@@ -143,7 +143,7 @@ export function CapabilitiesSection() {
 
   return (
     <section id="capabilities" className="py-10 lg:py-14 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -164,7 +164,7 @@ export function CapabilitiesSection() {
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-5 gap-6 lg:gap-10">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-12">
           {/* Left - Capability List */}
           <div className="lg:col-span-2 space-y-1">
             {capabilities.map((cap, index) => (
@@ -201,7 +201,7 @@ export function CapabilitiesSection() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -20, scale: 0.98 }}
                 transition={{ duration: 0.4 }}
-                className="bg-background border border-border p-6 lg:p-8"
+                className="bg-background border-2 border-foreground/20 p-6 lg:p-8"
               >
                 {/* Header */}
                 <div className="flex items-start gap-4 mb-6">

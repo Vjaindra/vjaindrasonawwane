@@ -59,7 +59,7 @@ const cardVariants = {
 export function ImpactSection() {
   return (
     <section id="impact" className="py-10 lg:py-14 bg-card">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,14 +85,14 @@ export function ImpactSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {impactCards.map((card, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
               whileHover={{ scale: 1.02, y: -5, boxShadow: "0 8px 30px -10px hsl(var(--primary) / 0.15)" }}
-              className="bg-background p-5 lg:p-6 group border border-border hover:border-foreground/20 transition-all duration-300"
+              className="bg-background p-5 lg:p-6 group border-2 border-foreground/20 hover:border-foreground/40 transition-all duration-300"
             >
               {/* Icon */}
               <motion.div 

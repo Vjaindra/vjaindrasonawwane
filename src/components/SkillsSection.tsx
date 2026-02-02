@@ -125,7 +125,7 @@ function TechCard({ item, index }: { item: typeof technicalExpertise[0]; index: 
     <motion.div
       variants={itemVariants}
       whileHover={{ y: -5, boxShadow: "0 10px 40px -10px hsl(var(--primary) / 0.3)" }}
-      className="group relative bg-card border border-primary/20 p-6 hover:border-primary/50 transition-all duration-300"
+      className="group relative bg-card border-2 border-foreground/20 p-6 hover:border-foreground/40 transition-all duration-300"
     >
       {/* Accent Line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
@@ -175,7 +175,7 @@ function StatBadge({ stat, index }: { stat: typeof careerStats[0]; index: number
 export function SkillsSection() {
   return (
     <section id="skills" className="py-10 lg:py-14 bg-card">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
