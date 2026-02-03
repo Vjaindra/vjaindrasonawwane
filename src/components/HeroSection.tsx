@@ -25,7 +25,7 @@ export function HeroSection() {
         style={{ 
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'contain',
-          backgroundPosition: 'left calc(50% + 2in)',
+          backgroundPosition: 'left calc(50% + 4in)',
         }}
       />
       <div className="absolute inset-0 bg-background/65 dark:bg-background/70" />
