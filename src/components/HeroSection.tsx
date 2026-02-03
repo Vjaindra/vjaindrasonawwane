@@ -21,10 +21,10 @@ export function HeroSection() {
     <section className="min-h-[90vh] flex items-center justify-center pt-20 relative overflow-hidden">
       {/* Background Image - Full visible with proper aspect ratio */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-no-repeat bg-center"
         style={{ 
           backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center center',
         }}
       />
